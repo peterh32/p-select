@@ -21,7 +21,7 @@
     <ul class="results" ng-show="showResults && choices.length">
         <li style="clear:both" ng-repeat="profile in choices" ng-class="{selected: selected==$index}"
             ng-mouseover="scrollTo($index)" ng-click="pickMe()">
-            <img height="50" style="float: left; padding-right: 8px;" src="{{ (profile.photos[0].url) || 'no_img.png' }}"/>
+            <img height="50" style="float: left; padding-right: 8px;" src="{{ (profile.photos[0].url) || 'img/no_img.png' }}"/>
             <div style="overflow: hidden; height:50px;" >{{ profile[displayField] }}</div>
         </li>
     </ul>
