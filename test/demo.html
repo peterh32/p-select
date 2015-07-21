@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>pSelect Test Page</title>
+    <link rel="stylesheet" href="../css/pSelect.css"/>
+    <link rel="stylesheet" href="../css/spinny.css"/>
+</head>
+<body ng-app="testApp">
+
+    <h1>pSelect</h1>
+
+    <p>
+        Fancy dropdown select widget built using angular.js.
+        Supports Ajax search or just use it to pretty up your
+        regular &lt;select&gt; widget.
+    </p>
+
+    <h2>Ajax Search</h2>
+
+    <div ng-controller="testController as tc" >
+        <h4>Basic Multiple-Choice Ajax Search Widget</h4>
+        <p>(Using tvguide.com's search API; hope they don't mind)</p>
+        <div p_select
+             multiple
+             name="tvshows"
+             ajax-url="http://mapi.tvguide.com/watchlist/search"
+             search-key="keyword"
+             extra-search-params="{'limit':'10', 'v': '1.0'}"
+             value-field="id"
+             display-field="name"
+             placeholder="Find TV Shows or Movies"
+             ng-model="tc.showsAndMovies"
+        ></div>
+    </div>
+
+    <div ng-controller="testController as tc" >
+        <h4>Alternate Template Displaying Images and Type</h4>
+        <p>Swap in a different HTML template to customize the widget.<p>
+        <div p_select
+             multiple
+             name="tvshows2"
+             ajax-url="http://mapi.tvguide.com/watchlist/search"
+             search-key="keyword"
+             extra-search-params="{'limit':'5', 'v': '1.0'}"
+             placeholder="Find TV Shows or Movies"
+             ng-model="tc.showsAndMovies"
+             template-url="picture_template.html"
+        ></div>
+    </div>
+
+    <div ng-controller="testController as tc" >
+        <h4>Single-Selection Version</h4>
+        <p>Same as the first one, but single select.<p>
+        <div p_select
+             name="tvshow"
+             ajax-url="http://mapi.tvguide.com/watchlist/search"
+             search-key="keyword"
+             extra-search-params="{'limit':'10', 'v': '1.0'}"
+             value-field="id"
+             display-field="name"
+             placeholder="Find a TV Show or Movie"
+             ng-model="tc.showsAndMovies"
+        ></div>
+    </div>
+
+    <div ng-controller="testController as tc" >
+        <h4>Preselected Options on an Ajax Widget</h4>
+        <p>Include a &lt;select&gt; with the options you want preselected.</p>
+        <div p_select
+             multiple
+             ajax-url="http://mapi.tvguide.com/watchlist/search"
+             search-key="keyword"
+             extra-search-params="{'limit':'5', 'v': '1.0'}"
+             placeholder="Find TV Shows or Movies"
+             ng-model="tc.showsAndMovies"
+        >
+            <select name="moretvshow" multiple>
+                <option value="100521" selected="selected">The Simpsons</option>
+                <option value="100170" selected="selected">Futurama</option>
+            </select>
+        </div>
+    </div>
+
+
+    <h2>Prettification of Standard Non-Ajax Select Widget</h2>
+
+    <div ng-controller="testController as tc" >
+        <h4>Enclose a standard &lt;select&gt; with the directive.</h4>
+        <p_select ng-model="tc.bob">
+            <select name="bob" placeholder="Find a Bob">
+                <option>Bob Hope</option>
+                <option>Bob Newhart</option>
+                <option>Bob Dobbs</option>
+                <option>Bob the Builder</option>
+                <option>Bob Marley</option>
+                <option>Bob Melvin</option>
+                <option>Bob Dylan</option>
+            </select>
+        </p_select>
+    </div>
+
+    <div ng-controller="testController as tc" >
+        <h4>Supports Preselected Options.</h4>
+        <div p_select
+             placeholder="Find Bobs"
+             ng-model="tc.bobs"
+        >
+            <select name="bobs" multiple>
+                <option>Bob Hope</option>
+                <option>Bob Newhart</option>
+                <option>Bob Dobbs</option>
+                <option selected="selected">Bob the Builder</option>
+                <option>Bob Marley</option>
+                <option selected="selected">Bob Melvin</option>
+                <option>Bob Dylan</option>
+            </select>
+        </div>
+    </div>
+    <br/><br/><br/><br/><br/><br/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="../js/pSelect.js"></script>
+    <script src="test.js"></script>
+
+</body>
+</html>
