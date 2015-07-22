@@ -4,7 +4,7 @@
 
         <!-- the selected picks, if any -->
         <span class="pick" ng-repeat="pick in picks" ng-class="{highlight: highlight==$index}">
-            {{ pick[displayField] }} &#150; {{pick.type}}
+            {{ pick[displayField] }}
             <span ng-show="pick.photos[0].url"> (has photo)</span>
             <span ng-show="!pick.photos[0].url"> (no photo)</span>
             <a ng-click="unPick($index)" class="kill_pick">&times;</a>
@@ -19,10 +19,10 @@
 
     <!-- the dropdown displaying your matches -->
     <ul class="results" ng-show="showResults && choices.length">
-        <li style="clear:both" ng-repeat="profile in choices" ng-class="{selected: selected==$index}"
+        <li style="clear:both" ng-repeat="choice in choices" ng-class="{selected: selected==$index}"
             ng-mouseover="scrollTo($index)" ng-click="pickMe()">
-            <img height="50" style="float: left; padding-right: 8px;" src="{{ (profile.photos[0].url) || 'img/no_img.png' }}"/>
-            <div style="overflow: hidden; height:50px;" >{{ profile[displayField] }}</div>
+            <img height="50" style="float: left; padding-right: 8px;" src="{{ (choice.photos[0].url) || 'img/no_img.png' }}"/>
+            <div style="overflow: hidden; height:50px;" >{{ choice[displayField] }}</div>
         </li>
     </ul>
 
