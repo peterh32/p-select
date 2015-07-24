@@ -15,6 +15,36 @@
         regular &lt;select&gt; widget.
     </p>
 
+    <script>
+        $(function(){
+            $.ajaxSetup({
+              xhrFields: {
+                withCredentials: true
+              }
+            });
+        });
+        function foo() {
+            $.cookie("monkey", 'banana');
+            $.ajax({
+                type: "GET",
+                url: "http://metzler.local.dev/search/profiles",
+                cache: false,
+                // NO setCookies option available, set cookie to document
+                //setCookies: "lkfh89asdhjahska7al446dfg5kgfbfgdhfdbfgcvbcbc dfskljvdfhpl",
+                crossDomain: true,
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
+            return false;
+        }
+    </script>
+    <a href='xxx' onclick="return foo()">click me!</a>
 
     <div ng-controller="testController as tc" >
         <h3>PROD</h3>
@@ -113,7 +143,7 @@
         </dl>
     </div>
 
-    
+
 
     <div ng-controller="testController as tc" >
         <h3>Alternate Template</h3>
@@ -249,6 +279,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="js/pSelect.js"></script>
     <script src="js/test.js"></script>
 
