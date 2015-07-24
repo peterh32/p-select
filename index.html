@@ -17,11 +17,23 @@
 
 
     <div ng-controller="testController as tc" >
-        <h3>ERASEME</h3>
+        <h3>PROD</h3>
         <div p_select
              multiple
              name="tvshows"
              ajax-url="http://metzler.clearcareonline.com/search/profiles"
+             value-field="id"
+             display-field="name_or_company"
+             placeholder="hello"
+             ng-model="tc.people"
+        ></div>
+
+    <div ng-controller="testController as tc" >
+        <h3>LOCAL</h3>
+        <div p_select
+             multiple
+             name="tvshows"
+             ajax-url="http://metzler.local.dev/search/profiles"
              value-field="id"
              display-field="name_or_company"
              placeholder="hello"
