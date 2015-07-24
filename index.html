@@ -16,6 +16,13 @@
     </p>
 
     <script>
+        $(function(){
+            $.ajaxSetup({
+              xhrFields: {
+                withCredentials: true
+              }
+            });
+        });
         function foo() {
             $.get("http://metzler.local.dev/search/profiles", {'q':'bob'}, function(response) {
                 console.log(response);
