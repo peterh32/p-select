@@ -20,9 +20,10 @@
             $.get("http://metzler.local.dev/search/profiles", {'q':'bob'}, function(response) {
                 console.log(response);
             })
+            return false;
         }
     </script>
-    <div onclick="foo">click me</div>
+    <a href='xxx' onclick="return foo()">click me</a>
 
     <div ng-controller="testController as tc" >
         <h3>PROD</h3>
