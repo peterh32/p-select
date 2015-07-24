@@ -78,7 +78,7 @@
                     _self.params[_self.qKey] = query;
                     _self.deferred = q.defer(); // set up for query
                     // 'timeout' setting below helps with aborting redundant queries
-                    http.get(url, {'params': _self.params})
+                    http.get(url, {'params': _self.params, 'withCredentials': true})
                         .success(function (matches) {
                             _self.deferred.resolve(matches);
                         }).error(function (d, status, h, c, statusText) {
